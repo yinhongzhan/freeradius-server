@@ -2419,6 +2419,13 @@ static void request_post_handler(REQUEST *request)
 		}
 
 		/*
+		 *	Run accepted packets through post-auth
+		 */
+		if (request->reply->code == PW_AUTHENTICATION_ACK) {
+			rad_postauth(request);
+		}
+
+		/*
 		 *	Run rejected packets through
 		 *
 		 *	Post-Auth-Type = Reject
