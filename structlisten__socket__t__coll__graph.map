@@ -1,0 +1,19 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$structradclient.html" title="radclient" alt="" coords="1075,319,1146,345"/>
+<area shape="rect" id="node4" href="$structhome__pool__t.html" title="home_pool_t" alt="" coords="868,243,964,269"/>
+<area shape="rect" id="node6" href="$structhome__server.html" title="home_server" alt="" coords="667,369,765,396"/>
+<area shape="rect" id="node8" href="$structconf__part.html" title="conf_part" alt="" coords="425,140,501,167"/>
+<area shape="rect" id="node11" href="$structconf__item.html" title="conf_item" alt="" coords="677,44,755,71"/>
+<area shape="rect" id="node15" href="$structCONF__PARSER.html" title="CONF_PARSER" alt="" coords="160,140,283,167"/>
+<area shape="rect" id="node17" href="$structrbtree__t.html" title="rbtree_t" alt="" coords="188,411,255,437"/>
+<area shape="rect" id="node52" href="$structradclient__list.html" title="radclient_list" alt="" coords="547,495,642,521"/>
+<area shape="rect" id="node19" href="$structrbnode__t.html" title="rbnode_t" alt="" coords="5,411,77,437"/>
+<area shape="rect" id="node22" href="$structfr__socket__limit__t.html" title="fr_socket_limit_t" alt="" coords="403,289,522,316"/>
+<area shape="rect" id="node24" href="$structfr__event__t.html" title="fr_event_t" alt="" coords="423,421,503,448"/>
+<area shape="rect" id="node27" href="$structfr__ipaddr__t.html" title="fr_ipaddr_t" alt="" coords="421,649,504,676"/>
+<area shape="rect" id="node36" href="$structradius__packet.html" title="radius_packet" alt="" coords="865,716,967,743"/>
+<area shape="rect" id="node29" href="$structin6__addr.html" title="in6_addr" alt="" coords="186,747,257,773"/>
+<area shape="rect" id="node40" href="$unionvalue__pair__data.html" title="value_pair_data" alt="" coords="406,816,519,843"/>
+<area shape="rect" id="node38" href="$structvalue__pair.html" title="value_pair" alt="" coords="675,816,757,843"/>
+<area shape="rect" id="node44" href="$structattr__flags.html" title="attr_flags" alt="" coords="425,765,501,792"/>
+</map>

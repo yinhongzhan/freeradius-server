@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$structsql__inst.html" title="sql_inst" alt="" coords="232,563,299,590"/>
+<area shape="rect" id="node4" href="$structfr__connection__pool__t.html" title="fr_connection_pool_t" alt="" coords="5,369,147,395"/>
+<area shape="rect" id="node6" href="$structconf__part.html" title="conf_part" alt="" coords="262,247,337,274"/>
+<area shape="rect" id="node9" href="$structconf__item.html" title="conf_item" alt="" coords="402,369,480,395"/>
+<area shape="rect" id="node30" href="$structrlm__sql__config__section.html" title="rlm_sql_config_section" alt="" coords="223,369,376,395"/>
+<area shape="rect" id="node13" href="$structCONF__PARSER.html" title="CONF_PARSER" alt="" coords="195,113,317,139"/>
+<area shape="rect" id="node15" href="$structrbtree__t.html" title="rbtree_t" alt="" coords="341,113,408,139"/>
+<area shape="rect" id="node17" href="$structrbnode__t.html" title="rbnode_t" alt="" coords="339,14,411,41"/>
+<area shape="rect" id="node20" href="$structfr__connection__t.html" title="fr_connection_t" alt="" coords="21,247,131,274"/>
+<area shape="rect" id="node24" href="$structsql__socket.html" title="sql_socket" alt="" coords="223,473,308,499"/>
+<area shape="rect" id="node26" href="$structrlm__sql__module__t.html" title="rlm_sql_module_t" alt="" coords="333,473,456,499"/>
+<area shape="rect" id="node28" href="$structsql__config.html" title="sql_config" alt="" coords="481,473,561,499"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$structconf__part.html" title="conf_part" alt="" coords="193,247,268,274"/>
+<area shape="rect" id="node5" href="$structconf__item.html" title="conf_item" alt="" coords="243,369,321,395"/>
+<area shape="rect" id="node18" href="$structfr__connection__pool__t.html" title="fr_connection_pool_t" alt="" coords="6,369,148,395"/>
+<area shape="rect" id="node9" href="$structCONF__PARSER.html" title="CONF_PARSER" alt="" coords="117,113,240,139"/>
+<area shape="rect" id="node11" href="$structrbtree__t.html" title="rbtree_t" alt="" coords="264,113,331,139"/>
+<area shape="rect" id="node13" href="$structrbnode__t.html" title="rbnode_t" alt="" coords="261,14,333,41"/>
+<area shape="rect" id="node16" href="$structrlm__redis__t.html" title="rlm_redis_t" alt="" coords="51,459,137,486"/>
+<area shape="rect" id="node21" href="$structfr__connection__t.html" title="fr_connection_t" alt="" coords="5,247,115,274"/>
+</map>

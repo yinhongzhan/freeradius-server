@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$structvalue__pair.html" title="value_pair" alt="" coords="77,199,157,225"/>
+<area shape="rect" id="node4" href="$unionvalue__pair__data.html" title="value_pair_data" alt="" coords="5,96,117,123"/>
+<area shape="rect" id="node6" href="$structin6__addr.html" title="in6_addr" alt="" coords="151,5,221,32"/>
+<area shape="rect" id="node11" href="$structfr__ipaddr__t.html" title="fr_ipaddr_t" alt="" coords="219,147,300,173"/>
+<area shape="rect" id="node9" href="$structattr__flags.html" title="attr_flags" alt="" coords="142,96,217,123"/>
+</map>

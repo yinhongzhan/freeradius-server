@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$structhome__pool__t.html" title="home_pool_t" alt="" coords="97,470,193,497"/>
+<area shape="rect" id="node4" href="$structhome__server.html" title="home_server" alt="" coords="273,366,369,393"/>
+<area shape="rect" id="node6" href="$structconf__part.html" title="conf_part" alt="" coords="79,246,155,273"/>
+<area shape="rect" id="node9" href="$structconf__item.html" title="conf_item" alt="" coords="117,366,195,393"/>
+<area shape="rect" id="node13" href="$structCONF__PARSER.html" title="CONF_PARSER" alt="" coords="5,113,128,139"/>
+<area shape="rect" id="node15" href="$structrbtree__t.html" title="rbtree_t" alt="" coords="152,113,219,139"/>
+<area shape="rect" id="node17" href="$structrbnode__t.html" title="rbnode_t" alt="" coords="149,14,221,41"/>
+<area shape="rect" id="node20" href="$structfr__socket__limit__t.html" title="fr_socket_limit_t" alt="" coords="258,246,376,273"/>
+<area shape="rect" id="node22" href="$structfr__event__t.html" title="fr_event_t" alt="" coords="400,246,479,273"/>
+<area shape="rect" id="node25" href="$structfr__ipaddr__t.html" title="fr_ipaddr_t" alt="" coords="561,246,643,273"/>
+<area shape="rect" id="node27" href="$structin6__addr.html" title="in6_addr" alt="" coords="567,113,637,139"/>
+</map>
