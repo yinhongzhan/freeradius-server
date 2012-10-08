@@ -74,8 +74,7 @@ int radius_compare_vps(REQUEST *request, VALUE_PAIR *check, VALUE_PAIR *vp)
 		char value[1024];
 		regmatch_t rxmatch[REQUEST_MAX_REGEX + 1];
 
-		snprintf(name, sizeof(name), "%%{%s}", check->name);
-		radius_xlat(value, sizeof(value), name, request, NULL);
+		vp_prints_value(value, sizeof(value), vp, -1);
 
 		/*
 		 *	Include substring matches.
@@ -151,8 +150,7 @@ int radius_compare_vps(REQUEST *request, VALUE_PAIR *check, VALUE_PAIR *vp)
 		char value[1024];
 		regmatch_t rxmatch[REQUEST_MAX_REGEX + 1];
 
-		snprintf(name, sizeof(name), "%%{%s}", check->name);
-		radius_xlat(value, sizeof(value), name, request, NULL);
+		vp_prints_value(value, sizeof(value), vp, -1);
 
 		/*
 		 *	Include substring matches.
