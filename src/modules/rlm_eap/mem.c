@@ -529,6 +529,7 @@ EAP_HANDLER *eaplist_find(rlm_eap_t *inst, REQUEST *request,
 	state = pairfind(request->packet->vps, PW_STATE);
 	if (!state ||
 	    (state->length != EAP_STATE_LEN)) {
+		RMODMSG("Missing or invalid State variable");
 		return NULL;
 	}
 
@@ -551,12 +552,12 @@ EAP_HANDLER *eaplist_find(rlm_eap_t *inst, REQUEST *request,
 	 *	Might not have been there.
 	 */
 	if (!handler) {
-		radlog(L_ERR, "rlm_eap: No EAP session matching the State variable.");
+		RMODMSG("No EAP session matching the State variable");
 		return NULL;
 	}
 
 	if (handler->trips >= 50) {
-		RDEBUG2("More than 50 authentication packets for this EAP session.  Aborted.");
+		RMODMSG("More than 50 authentication packets for this EAP session.  Aborted.");
 		eap_handler_free(inst, handler);
 		return NULL;
 	}

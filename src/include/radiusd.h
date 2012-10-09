@@ -399,6 +399,8 @@ typedef struct main_config_t {
 #define RDEBUG4 DEBUG4
 #endif
 
+#define RMODMSG(x)	do { VALUE_PAIR *vp; vp=pairmake("Module-Failure-Message", x, T_OP_ADD); if (vp) pairadd(&request->packet->vps, vp); if (request->radlog) request->radlog(L_DBG, 1, request, x); } while (0)
+
 #define SECONDS_PER_DAY		86400
 #define MAX_REQUEST_TIME	30
 #define CLEANUP_DELAY		5
