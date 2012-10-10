@@ -379,7 +379,7 @@ static int radius_do_cmp(REQUEST *request, int *presult,
 			 */
 			if ((token == T_OP_REG_EQ) ||
 			    (token == T_OP_REG_NE)) {
-				vp_prints_value(buffer, sizeof(buffer), vp, 0);
+				vp_prints_value(buffer, sizeof(buffer), vp, -1);
 				pleft = buffer;
 				goto do_checks;
 			}
