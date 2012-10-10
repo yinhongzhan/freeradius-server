@@ -107,11 +107,66 @@ static const char *expand_string(char *buffer, size_t sizeof_buffer,
 }
 
 #ifdef HAVE_REGEX_H
+static FR_TOKEN getregex2(const char **ptr, char *buffer, size_t buflen,
+			 int *pcflags)
+{
+	char *p = *ptr;
+	char delim = *p++;
+	char *q = buffer;
+
+	*pcflags = REG_EXTENDED;
+
+	while (*p && buflen > 1) {
+
+		if (p[0]==delim) {
+			/* end of regex */
+			p++;
+			break;
+		} else if (p[0]=='\\' && p[1]==delim) {
+			/* \! - output ! */
+			*q++ = delim;
+			p += 2;
+		} else {
+			*q++ = *p++;
+		}
+		buflen--;
+	}
+
+	/* check for flags after regex */
+	while (*p) {
+		if (p[0]=='i') {
+			*pcflags |= REG_ICASE;
+#ifdef HAVE_PCREPOSIX_H
+		} else if (p[0]=='g') {
+			*pcflags |= REG_UNGREEDY;
+		} else if (p[0]=='s') {
+			*pcflags |= REG_DOTALL;
+		} else if (p[0]=='m') {
+			*pcflags |= REG_NEWLINE;
+		} else if (p[0]=='u') {
+			*pcflags |= REG_UCP;
+		} else if (p[0]=='8') {
+			*pcflags |= REG_UTF8;
+#endif
+		} else {
+			break;
+		}
+		p++;
+	}
+
+	*q = '\0';
+	*ptr = p;
+
+	return T_DOUBLE_QUOTED_STRING;
+}
+
 static FR_TOKEN getregex(const char **ptr, char *buffer, size_t buflen,
 			 int *pcflags)
 {
 	const char *p = *ptr;
 	char *q = buffer;
+
+	if (*p == '!') return getregex2(ptr, buffer, buflen, pcflags);
 
 	if (*p != '/') return T_OP_INVALID;
 
