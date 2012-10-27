@@ -27,6 +27,7 @@ RCSID("$Id$")
 
 #include	<freeradius-devel/radiusd.h>
 #include	<freeradius-devel/rad_assert.h>
+#include	<freeradius-devel/base64.h>
 
 #include	<ctype.h>
 
@@ -533,6 +534,86 @@ static size_t xlat_string(UNUSED void *instance, REQUEST *request,
 	return len;
 }
 
+/**
+ * @brief Print data as hex, not as VALUE.
+ */
+static size_t xlat_hex(UNUSED void *instance, REQUEST *request,
+		       char *fmt, char *out, size_t outlen,
+		       UNUSED RADIUS_ESCAPE_STRING func)
+{
+	size_t i;
+	VALUE_PAIR *vp;
+	uint8_t	buffer[MAX_STRING_LEN];
+	ssize_t	ret;
+	size_t	len;
+
+	while (isspace((int) *fmt)) fmt++;
+
+	if (!radius_get_vp(request, fmt, &vp) || !vp) {
+		*out = '\0';
+		return 0;
+	}
+	
+	ret = rad_vp2data(vp, buffer, sizeof(buffer));
+	len = (size_t) ret;
+	
+	/*
+	 *	Don't truncate the data.
+	 */
+	if ((ret < 0 ) || (outlen < (len * 2))) {
+		*out = 0;
+		return 0;
+	}
+
+	for (i = 0; i < len; i++) {
+		snprintf(out + 2*i, 3, "%02x", buffer[i]);
+	}
+
+	return len * 2;
+}
+
+/**
+ * @brief Print data as base64, not as VALUE
+ */
+static size_t xlat_base64(UNUSED void *instance, REQUEST *request,
+			  const char *fmt, char *out, size_t outlen)
+{
+	VALUE_PAIR *vp;
+	uint8_t buffer[MAX_STRING_LEN];
+	ssize_t	ret;
+	size_t	len;
+	size_t	enc;
+	
+	while (isspace((int) *fmt)) fmt++;
+
+	if (!radius_get_vp(request, fmt, &vp) || !vp) {
+		*out = '\0';
+		return 0;
+	}
+	
+	ret = rad_vp2data(vp, buffer, sizeof(buffer));
+	if (ret < 0) {
+		*out = 0;
+		return 0;
+	}
+	
+	len = (size_t) ret;
+	
+	enc = FR_BASE64_ENC_LENGTH(len);
+	
+	/*
+	 *	Don't truncate the data.
+	 */
+	if (outlen < (enc + 1)) {
+		*out = 0;
+		return 0;
+	}
+	
+	fr_base64_encode(buffer, len, out, outlen);
+
+	return enc;
+}
+
 #ifdef HAVE_REGEX_H
 /*
  *	Pull %{0} to %{8} out of the packet.
@@ -678,9 +759,19 @@ int xlat_register(const char *module, RAD_XLAT_FUNC func, void *instance)
 		c = xlat_find("control");
 		rad_assert(c != NULL);
 		c->internal = TRUE;
+		
+		xlat_register("hex", xlat_hex, "");
+		c = xlat_find("hex");
+		rad_assert(c != NULL);
+		c->internal = TRUE;
 
 		xlat_register("integer", xlat_integer, "");
 		c = xlat_find("integer");
+		rad_assert(c != NULL);
+		c->internal = TRUE;
+		
+		xlat_register("base64", xlat_hex, "");
+		c = xlat_find("base64");
 		rad_assert(c != NULL);
 		c->internal = TRUE;
 

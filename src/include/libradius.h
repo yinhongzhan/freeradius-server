@@ -47,6 +47,18 @@ RCSIDH(libradius_h, "$Id$")
 #endif
 #endif
 
+#ifndef FALSE
+#define FALSE 0
+#endif
+#ifndef TRUE
+/*
+ *	This definition of true as NOT false is definitive. :) Making
+ *	it '1' can cause problems on stupid platforms.  See articles
+ *	on C portability for more information.
+ */
+#define TRUE (!FALSE)
+#endif
+
 /*
  *  Include for modules.
  */
@@ -332,6 +344,7 @@ int		rad_chap_encode(RADIUS_PACKET *packet, uint8_t *output,
 VALUE_PAIR	*rad_attr2vp(const RADIUS_PACKET *packet, const RADIUS_PACKET *original,
 			     const char *secret, int attribute, int length,
 			     const uint8_t *data);
+ssize_t		rad_vp2data(const VALUE_PAIR *vp, uint8_t *out, size_t outlen);
 int		rad_vp2attr(const RADIUS_PACKET *packet,
 			    const RADIUS_PACKET *original, const char *secret,
 			    const VALUE_PAIR *vp, uint8_t *ptr);
