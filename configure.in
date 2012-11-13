@@ -22,15 +22,17 @@ dnl #############################################################
 
 AC_PREREQ([2.59])
 export CFLAGS LIBS LDFLAGS CPPFLAGS
+
+m4_define(PACKAGE_MAIN, freeradius)
+
 AC_INIT(src/main/radiusd.c)
 AC_CONFIG_HEADER(src/include/autoconf.h)
-AC_REVISION($Revision$)dnl
 
 dnl # The version of the software
 
 RADIUSD_MAJOR_VERSION=`cat VERSION | sed 's/\..*//'`
-RADIUSD_MINOR_VERSION=`cat VERSION | sed 's/^[^\.]*\.//' | sed 's/\..*$//'`
-RADIUSD_INCRM_VERSION=`cat VERSION | sed 's/^.*\..*\.//' | sed 's/-.*$//'`
+RADIUSD_MINOR_VERSION=`cat VERSION | sed 's/^[[^\.]]*\.//' | sed 's/\..*$//'`
+RADIUSD_INCRM_VERSION=`cat VERSION | sed 's/^.*\..*\.//' | sed 's/[[\.-]].*$//'`
 
 RADIUSD_VERSION=`echo | awk -v major="$RADIUSD_MAJOR_VERSION" \
 -v minor="$RADIUSD_MINOR_VERSION" \
@@ -39,7 +41,7 @@ RADIUSD_VERSION=`echo | awk -v major="$RADIUSD_MAJOR_VERSION" \
 
 dnl # Still useful for custom builds
 RADIUSD_VERSION_STRING=`cat VERSION`
-PACKAGE=freeradius
+PACKAGE=PACKAGE_MAIN
 
 dnl #############################################################
 dnl #
@@ -339,7 +341,7 @@ if test -d $srcdir/.git; then
   fi  
   
   dnl append the current git hash onto the version string
-  if test $GIT = yes; then
+  if test "x$GIT" = "xyes"; then
   	RADIUSD_VERSION_COMMIT=`git log --pretty=format:'%h' -n 1`
   fi
 fi
